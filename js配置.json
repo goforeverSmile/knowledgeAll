@@ -1,0 +1,23 @@
+
+
+首先json没有不能有注释我这里是为了说明才写的注释，正常是不可以有的
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir" : "frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d", "ccui", "compression", "gui", "editbox"],
+
+    "jsList" : [
+        "src/libs/PreloadRes.js",
+        "src/libs/Init.js",
+        "src/libs/js_ex/Md5.js",
+        "src/libs/js_ex/StringEx.js"  //结尾的时候记得没有 ，
+    ]
+}
