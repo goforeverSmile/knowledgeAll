@@ -1,0 +1,36 @@
+
+------------------lua°æ±¾---------------------
+1
+  local huLabal= ccui.TextBMFont:create()
+        huLabal:setFntFile("games/hnmj/images/huInfo.fnt")
+        huLabal:setString(tostring(info.huDes))
+               :addTo(self)
+        :anchor(cc.p(0, 0.5))
+        :layout(Layout.left_center, cc.p(210, 20))
+2
+function M:_createFontByImg()
+    local label1 = ccui.TextAtlas:create([[1]],
+                                    "games/hshi/images/num_level.png",
+                                    14,
+                                    22,
+                                    "0")
+    label1:setCascadeColorEnabled(true)
+    label1:setCascadeOpacityEnabled(true)
+
+    return label1
+end
+
+
+3
+   self._pGangLab = cc.Label:createWithSystemFont("¸Ü·Ö", "Arial", dControlInfo["GangLabInfo"]["Size"])
+        :addTo( self )
+        :anchor( dControlInfo["GangLabInfo"]["Anchor"] )
+        :layout( dControlInfo["GangLabInfo"]["Layout"], dControlInfo["GangLabInfo"]["Position"] )
+        :color(cc.c3b(170,166,139))
+
+
+var sImagePath = "games/hnmj/images/hnImag/num_g.png"
+        var pMultipleCount = LabelAtlas.create( String(iMultiple-1), sImagePath, "0", 10)
+        pMultipleCount.anchorEx( cc.p( 0.5,0.5 ) )
+        pMultipleCount.setPosition(pMultipleImgSprite.getContentSize().width/2, pMultipleImgSprite.getContentSize().height/2)
+        pMultipleImgSprite.addChild( pMultipleCount )
