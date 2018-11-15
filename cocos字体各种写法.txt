@@ -34,3 +34,9 @@ var sImagePath = "games/hnmj/images/hnImag/num_g.png"
         pMultipleCount.anchorEx( cc.p( 0.5,0.5 ) )
         pMultipleCount.setPosition(pMultipleImgSprite.getContentSize().width/2, pMultipleImgSprite.getContentSize().height/2)
         pMultipleImgSprite.addChild( pMultipleCount )
+
+
+九宫格锚点不是0.5,0.5,原来我在层上加一直放不老中间
+  this._bgSprite = Scale9Sprite.createWithPlist(undefined, "qqbh/bg_bg_3.png")
+        this._bgSprite.addToEx(this,10)
+            .anchorEx(cc.p(0.5, 0.5))

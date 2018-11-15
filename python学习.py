@@ -30,14 +30,10 @@
     # print(c)  #最终变量c仍然引用1
     # print c
 	
-"""
-多行注释
-"""
-"""
-标准的输出类型
-Numbers(数字) string (字符串) List(列表) Tuple(元组) Dictionary(字典)
-"""
-print("Hello python","什么桂东东西")
+	
+	
+	
+	
 	
 	
 	
