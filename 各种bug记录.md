@@ -6,4 +6,5 @@
   this._bgSprite.contentSizeEx(cc.size(pkWidth*scaleHnumber*(LengthN)+30, 220))
   .anchorEx(cc.p(0.5, 0.5))//九宫格锚点不是0.5设置一下马上对了到中心去了
 
-  2 在消息事件中 TouchEvent.registerTouchOneByOne(this) 如果onTouchBegan 返回return false 后面的onTouchMoved  onTouchMoved不会触犯
+  2 在消息事件中 TouchEvent.registerTouchOneByOne(this) 如果onTouchBegan 返回return false 后面的onTouchMoved  onTouchMoved不会触发
+  
