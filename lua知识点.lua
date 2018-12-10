@@ -234,3 +234,7 @@ end
 lua=里面string 可以用两个中空号【【11111】】---这个就是string 在里面换行可以直接entet
 【【111ddd
 ddd11】】--就是这样
+
+
+---------------lua的堆栈输出----------------
+ ---print( debug.traceback())
