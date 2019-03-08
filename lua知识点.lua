@@ -230,6 +230,7 @@ end
         end
     end
 	---------------------华丽分割--------------------
+	
 
 lua=里面string 可以用两个中空号【【11111】】---这个就是string 在里面换行可以直接entet
 【【111ddd
@@ -238,3 +239,9 @@ ddd11】】--就是这样
 
 ---------------lua的堆栈输出----------------
  ---print( debug.traceback())
+ 
+ --lua中调用父类的方法
+ 
+function M:onBusinessShowActionBtnN(actionData)
+    self:onBusinessShowActionBtnN(actionDataDelBuhua)
+end
