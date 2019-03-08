@@ -242,6 +242,3 @@ ddd11】】--就是这样
  
  --lua中调用父类的方法
  
-function M:onBusinessShowActionBtnN(actionData)
-    self:onBusinessShowActionBtnN(actionDataDelBuhua)
-end
