@@ -172,3 +172,15 @@ function ceshi1818(num)
     }
 }
 ceshi1818(12)
+
+
+
+
+console.log("取消字段中最后的空格 有没有取消成功  ")
+var ddd="dddd  ddd dfasfdas  dfasdfas  fda  "
+var ffff="连上就取消成功了"
+
+ddd=ddd.replace(/(\s*$)/g,"")
+ddd=ddd+ffff
+console.log(ddd)
+
