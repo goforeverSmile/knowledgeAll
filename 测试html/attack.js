@@ -184,3 +184,11 @@ ddd=ddd.replace(/(\s*$)/g,"")
 ddd=ddd+ffff
 console.log(ddd)
 
+ var layoutTable =
+            {
+                4:9,
+                3:10,
+                2:10,
+            }
+console.log(layoutTable)
+
