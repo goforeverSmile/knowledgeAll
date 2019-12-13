@@ -28,5 +28,5 @@ def _change_file_name(path, file_name, original_name, new_name):
 # 改变指定目录下的文件名 END
  
  
-root_path = R"E:\LiaoNing\LNClient_JS\games\mjhc"
-change_file_name(root_path, "BX", "MJHC")
+root_path = R"E:\UN_PRO\U3DGame\tjmj"
+change_file_name(root_path, "MJSY", "TJMJ")
