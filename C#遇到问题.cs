@@ -7,6 +7,11 @@
 	A：int[] mf1=new int[6]; 
       //注意初始化数组的范围,或者指定初值; //包含6个元素的一维整数数组，初值1，2，3，4，5，6 
       int[] mf2=new int[6]{1,2,3,4,5,6}; 
+	  //mf2[100]=100; 这个就会报错!!!!!
+	  1.2
+	   string  的初始化
+	   sting []stirngNmae={"aaaa","bbbb"}  
+	    new string[]={"aaaa","bbbb"}
 2.复制
 	C#中数组复制有多种方法数组间的复制，int[] pins = {9,3,4,9};int [] alias = pins;这里出了错误，也是错误的根源，以上代码并没有出错，
 	但是根本不是复制，因为pins和alias都是引用，存在于堆栈中，而数据9,3,4,3是一个int对象存在于堆中，int [] alias = pins;
@@ -56,4 +61,48 @@ c#中去掉字符串空格方法
 class program{
     public string XXXXXX{get;private set;}  // private 可加可不加，看自己
 }
+ Vector2 posBt = new Vector2();
+https://blog.csdn.net/Anfeng0228/article/details/80083522	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	------------
