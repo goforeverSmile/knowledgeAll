@@ -1,4 +1,7 @@
 console.log("游戏开始")
+document.write("<script type='text/javascript' src='PKCard.js'></script>"); 
+//import 'js2.js';
+
 function ceshiFun()
 {
 
@@ -68,7 +71,7 @@ obj.prototype.test1 =function()
 }
 var t = new obj('test');
 
-t.test();   //alert('test');
+//t.test();   //alert('test');
 
 
 window.color = 'red';
@@ -92,14 +95,14 @@ var Pet = {
         console.log(say + ''+ this.words)
     }
 }
-Pet.speak('Speak'); // 结果：Speak...
+//Pet.speak('Speak'); // 结果：Speak...
 
 var Dog = {
     words:'Wang'
 }
 
 //将this的指向改变成了Dog
-Pet.speak.call(Dog, 'Speak'); //结果： SpeakWang
+//Pet.speak.call(Dog, 'Speak'); //结果： SpeakWang
 
 
 function calcJushu(palyerCount)
@@ -125,10 +128,10 @@ function checkTheSameNum(aNum,bNum,ceshiInfo)
 	
 }
 
-checkTheSameNum(1,2,"测试第一组")
-checkTheSameNum(true,1,"测试第二组")
-checkTheSameNum(0,false,"测试第三组")
-checkTheSameNum(0,undefined,"测试第三组")
+////checkTheSameNum(1,2,"测试第一组")
+//checkTheSameNum(true,1,"测试第二组")
+//checkTheSameNum(0,false,"测试第三组")
+//checkTheSameNum(0,undefined,"测试第三组")
 
 
 
@@ -171,7 +174,15 @@ function ceshi1818(num)
         console.log("i===",i,"值====",ToceshiData[i])
     }
 }
-ceshi1818(12)
+
+function ArratPk(ToceshiData)
+{
+    for(var i in ToceshiData)
+    {
+        console.log("i===",i,"值====",ToceshiData[i])
+    }
+}
+ArratPk(PKCard)
 
 
 
@@ -190,5 +201,5 @@ console.log(ddd)
                 3:10,
                 2:10,
             }
-console.log(layoutTable)
+//console.log(layoutTable)
 
