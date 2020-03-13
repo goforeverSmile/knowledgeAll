@@ -4,12 +4,12 @@
 @echo off
 
 rem 进入批处理文件所在的路径
-cd E:\LiaoNing\LNClient_JS\games\mjhc
+cd E:\LiaoNing\LNClient_JS\games\qhss
 
 echo ***** Replace "123" as "abc" *****
 rem 定义要替换的新旧字符串
-set strOld=123
-set strNew=abc
+set strOld=J5SK
+set strNew=QHSS
 
 rem 定义变量修改本地化延期
 setlocal enabledelayedexpansion

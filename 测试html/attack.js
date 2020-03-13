@@ -182,24 +182,192 @@ function ArratPk(ToceshiData)
         console.log("i===",i,"值====",ToceshiData[i])
     }
 }
-ArratPk(PKCard)
+//ArratPk(PKCard)
 
 
+function SpaceDec()
+{
+	console.log("取消字段中最后的空格 有没有取消成功  ")
+	var ddd="dddd  ddd dfasfdas  dfasdfas  fda  "
+	var ffff="连上就取消成功了"
+
+	ddd=ddd.replace(/(\s*$)/g,"")
+	ddd=ddd+ffff
+	console.log(ddd)
+
+	 var layoutTable =
+				{
+					4:9,
+					3:10,
+					2:10,
+				}
+	//console.log(layoutTable)
+}
+
+function DataPaiXun()
+{
+	var   ceShiDatas=[];
+	for(var i in  PKCard)
+	{
+		ceShiDatas.push(PKCard[i]);
+    }
+    
+//          ceShiDatas=[  // 51：Hei_3  3：Fang_3  35：Hong_3  19：Mei_3
+//         51,3,3,35,19
+//    ]
+
+//    ceShiDatas=[PKCard.Fang_1,PKCard.Mei_1,PKCard.Hong_1,PKCard.Hei_1,
+//     PKCard.Fang_3,PKCard.Mei_3,PKCard.Hong_3,PKCard.Hei_3,
+//     PKCard.Fang_2 ,PKCard.Fang_3 ,PKCard.Fang_4 ,PKCard.Fang_5 ,PKCard.Fang_6 ,
+//     PKCard.Fang_7 ,PKCard.Fang_8 ,PKCard.Fang_9 ,PKCard.Fang_10,PKCard.Fang_J ,
+//     PKCard.Fang_Q ,PKCard.Fang_K
+// ]
+ 
+	//ceShiDatas.sort(function(){return Math.random()>0.5?-1:1;})
+	var  ceshiFunc=function(a,b)
+	{
+		return a>b
+	}
+	ArrayEx.sortByCondition(ceShiDatas,J5SKUtilities.SortByValue.bind(J5SKUtilities))
+	//ArrayEx.sortByCondition(ceShiDatas,ceshiFunc)
+	console.log("数据打乱重新排序=================")
+	
+}
 
 
-console.log("取消字段中最后的空格 有没有取消成功  ")
-var ddd="dddd  ddd dfasfdas  dfasdfas  fda  "
-var ffff="连上就取消成功了"
+function toDifferData()
+{
 
-ddd=ddd.replace(/(\s*$)/g,"")
-ddd=ddd+ffff
-console.log(ddd)
-
- var layoutTable =
+    var ceShiDatas=[PKCard.Fang_1,PKCard.Fang_5,PKCard.Hong_1,PKCard.Hei_1,
+        PKCard.Fang_3,PKCard.Mei_3,PKCard.Hong_3,PKCard.Hei_3,
+        PKCard.Fang_2 ,PKCard.Fang_3 ,PKCard.Fang_4 ,PKCard.Fang_5 ,PKCard.Fang_6 ,
+        PKCard.Fang_7 ,PKCard.Fang_2 ,PKCard.Fang_2 ,PKCard.Fang_2,PKCard.Fang_J ,
+        PKCard.Fang_5 ,PKCard.Fang_5
+    ]
+    
+    var RecondData=[];
+    for(var i in ceShiDatas)
+    {
+        var datatg={};
+        var Value=ceShiDatas[i];
+        var have=false;
+        for(var y in RecondData)
+        {
+            if(RecondData[y].value==Value)
             {
-                4:9,
-                3:10,
-                2:10,
+                RecondData[y].num=RecondData[y].num+1;
+                have=true;
             }
-//console.log(layoutTable)
+        }
+        if(!have)
+        {
+            datatg.value=Value;
+            datatg.num=1;
+            RecondData.push(datatg);
+        }
+    }
+    var callFuntion=function(a,b)
+    {
+        return a.num>b.num
+    }
+    ArrayEx.sortByCondition(RecondData,callFuntion)
+    console.log("differData")
+}
 
+
+function checkOutShunZi ()
+{
+    var teshiData=[PKCard.Fang_1,PKCard.Mei_2,PKCard.Mei_3,PKCard.Fang_4 ,PKCard.Fang_5 ]
+    teshiData=[PKCard.Mei_3 ,PKCard.Mei_4 ,PKCard.Fang_5 ,PKCard.Fang_6 ,PKCard.Fang_7]
+    //teshiData=[PKCard.Fang_6 ,PKCard.Fang_7 ,PKCard.Fang_8 ,PKCard.Fang_9 ,PKCard.Fang_10]
+    //teshiData= [PKCard.Fang_10,PKCard.Fang_J , PKCard.Fang_Q ,PKCard.Fang_K]
+
+    var CardDataArray=[];
+    for ( var key in PKCard )
+	{
+	    var Value = PKCard[key]
+	    if ( undefined === Value || Value ==255 || Value ==0 )
+	    {
+	        continue
+        }
+        if(CardDataArray.length>24)
+        {
+            break;
+        }
+	    CardDataArray.push( Value )
+	}
+    QHSSRuleImpl.GetStraight(CardDataArray,teshiData);
+}
+
+function ceshiGetMaxCards(outCards)
+{
+    var inPairCard=[PKCard.Mei_3,PKCard.Mei_3 ]
+    //singleCard=[PKCard.Mei_3 ]
+    var CardDataArray=[PKCard.Fang_1,PKCard.Fang_5,PKCard.Hong_1,PKCard.Hei_1,
+        PKCard.Fang_3,PKCard.Mei_3,PKCard.Hong_3,PKCard.Hei_3,
+        PKCard.Fang_2 ,PKCard.Fang_3 ,PKCard.Fang_4 ,PKCard.Fang_5 ,PKCard.Fang_6 ,
+        PKCard.Fang_7 ,PKCard.Fang_2 ,PKCard.Fang_2 ,PKCard.Fang_2,PKCard.Fang_J ,
+        PKCard.Fang_5 ,PKCard.Fang_5
+    ]
+   // QHSSRuleImpl.GetMaxCards(CardDataArray,inPairCard,false);
+    QHSSRuleImpl.GetPair(CardDataArray,inPairCard);
+}
+function Print(ArrayData,stringName)
+{
+	stringName= stringName || ""
+	for(var i in ArrayData)
+	{
+		console.log(stringName+"i===",ArrayData[i]);
+	}
+	
+}
+function copyAtoB()
+{
+	var arr = [1,2,3,4,5];
+	var Temdp=arr.slice(1,2);
+	Print(Temdp,"Temdp");
+	Print(arr,"arr");
+}
+ 
+ function DelArrayData()
+ {
+	 var ArrayData=[
+	 [1,1,1],
+	 [2,2,2],
+	 [222,222,222,222],
+	 [31,31,31,31],
+	 [43,43,43,43],
+	 [32,32,32,32],
+	 [2672,2672,2672,2672],
+	 [65,65,65,65],
+	 [202,202,202,202]
+	 ]
+	 var dataToCell=[]
+	 for(i in ArrayData)
+    {
+		var data=ArrayData[i]
+        if((data[0]%10)===1)
+        {
+            ArrayData.splice(i,1)
+			dataToCell.push(data)
+        }
+    } 
+ }
+
+// 品阶数组
+function ArrarConCat()
+{
+	//concat()把两个或者多个数组链接在一起，但是不改变已经存在的数组
+	//而是返回一个链接之后的新数组
+	var a = [1,2,3];
+	a.concat([4,5]);
+	console.log(a);
+	//此处输出为 [1, 2, 3]
+
+	var a = [1,2,3];
+	a = a.concat([4,5]);
+	console.log(a);
+	//此处输出为 [1, 2, 3 ,4 ,5]
+	//看书时不细心，导致在项目中调试了2个小时才发现这个bug,引以为戒。
+
+}
