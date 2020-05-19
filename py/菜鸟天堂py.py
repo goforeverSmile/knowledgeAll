@@ -30,9 +30,20 @@
     # print(c)  #最终变量c仍然引用1
     # print c
 	
-	
-	
-	
+#路径问题  pyhon中的路径是/或者是\\而不是\
+#当前文件路径 	pwd = os.getcwd()
+print os.getcwd() #获取当前工作目录路径
+print os.path.abspath('.') #获取当前工作目录路径
+print os.path.abspath('test.txt') #获取当前目录文件下的工作目录路径
+print os.path.abspath('..') #获取当前工作的父目录 ！注意是父目录路径
+print os.path.abspath(os.curdir) #获取当前工作目录路径
+3、改变当前目录
+1) 使用: os.chdir(path)。
+比如, 如果当前目录在 ‘E:’ 下面， 然后进入E 下面的files 文件 可以使用 os.chdir(E:\files).
+之后，使用比如 test1 = open('file1.txt'),  打开的文件会是在这个 ‘E:\files’ 目录下的文件，而不是 'E' 下的文件。
+4、组合路径返回
+os.path.join('file1','file2','file3')
+合并得到路径 file1/file2/file3。
 	
 	
 	
