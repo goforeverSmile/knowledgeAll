@@ -44,4 +44,8 @@ def forExample_5():
 def Fib(n):
     return 1 if n<=2 else Fib(n-1)+Fib(n-2)
 print(Fib(int(input("ent num==="))))
+
+# 关于os.getcwd()获取当前路径不正确 可以理解未这个运行程序当前是在什么路径运行,
+#不能当作是这个文件得路径 这用vs 运行这个脚本和直接运行就发现是不同路径
+
     
