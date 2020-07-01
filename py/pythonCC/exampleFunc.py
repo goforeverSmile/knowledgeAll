@@ -10,14 +10,4 @@ if __name__ == '__main__':
     TestPython().testPrint()
     print("web to clean: https://www.cnblogs.com/lpbca/p/7237923.html")
 
-
-
-
-
-
-
-
-
-
-
-input("wait for you input")
+print("TestPython=========exampleFunc")

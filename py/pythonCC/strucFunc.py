@@ -6,6 +6,7 @@ import subprocess
 import os
 import io
 import exampleFunc
+import json
 
 # 知识点： 引入错误处理方法
 # 知识点：  终端中文乱码的问题:可以加u : print(u"引路引入")
@@ -28,7 +29,6 @@ def ForAllIdes():
     ziDianData={"ab":15,"cf":89}
     for key in ((ziDianData)):
         print("key===[]",key,ziDianData[key])
-ForAllIdes();
 #知识点 ：没有 ++ n的写法
 #print(res+day)12
 def forExample_5():
@@ -43,9 +43,23 @@ def forExample_5():
 # def forExample_6():
 def Fib(n):
     return 1 if n<=2 else Fib(n-1)+Fib(n-2)
-print(Fib(int(input("ent num==="))))
-
 # 关于os.getcwd()获取当前路径不正确 可以理解未这个运行程序当前是在什么路径运行,
 #不能当作是这个文件得路径 这用vs 运行这个脚本和直接运行就发现是不同路径
+#
 
-    
+#只读“r” 如果jsFile.write("tobbocc")直接把原来的数据都删除了
+# f = open('write_demo.txt', 'w')  #打开文件，往哪个文件里写入数据。如无，创建。
+# print ("文件名为: ", f.name)         #f.name打印文件的名称，带拓展名
+# f.write('hello ,I am writing ')      #注意write写入是先将文件内容清空，然后再写入。
+#content=f.read(3)  #3表示读取3个字符，虽然说是byte。但是有中文时实际按字符返回的
+#read() 不加数组就全读加数就读几个,可以赋值给变量readline读一行
+# json.load 获取这个才一变字典
+def testOpenJS():
+    nowDIr=os.getcwd()
+    print(os.path.abspath('main.py'))
+    accountPath="D:/giSelf/knowledgeAll/py/pythonCC/accounts.json"
+    with open(accountPath) as data_file:    
+         data = json.load(data_file)
+         print(data)
+         print(type(data))
+testOpenJS()
