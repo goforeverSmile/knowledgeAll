@@ -1,0 +1,153 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    //方法论
+    //   ${workspaceRoot}  "${file}
+    //方法1 直接在参数中,但是我没办法运行py中函数
+    // "args": [
+    //     "./PackConfig/sublime快捷键工具/ceshipy.py ", 
+    // ],
+    
+    //python -c "import b; b.my_sum(4,5)"
+
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "beijinInner",
+            "type": "shell",
+            "windows": {
+                "command": "python"
+            },
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py",
+                "beijin",
+                "0"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "beijinceshi",
+            "type": "shell",
+            "windows": {
+                "command": "python"
+            },
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py",
+                "beijin",
+                "1"
+            ]
+        },
+        {
+            "label": "beijin",
+            "type": "shell",
+            "windows": {
+                "command": "python"
+            },
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py",
+                "beijin",
+                "2"
+            ]
+        },
+        {
+            "label": "tianjinInner",
+            "type": "shell",
+            "windows": {
+                "command": "python"
+            },
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py",
+                "tianjin",
+                "0"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "tianjinceshi",
+            "type": "shell",
+            "windows": {
+                "command": "python"
+            },
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py",
+                "tianjin",
+                "1"
+            ]
+        },
+        {
+            "label": "tianjin",
+            "type": "shell",
+            "windows": {
+                "command": "python"
+            },
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py",
+                "tianjin",
+                "2"
+            ]
+        },
+        {
+            "label": "henanInner",
+            "type": "shell",
+            "windows": { "command": "python"},
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py","henan","0"],
+            "problemMatcher": [],
+            "group": {"kind": "build","isDefault": true}
+        },
+        {
+            "label": "henanceshi",
+            "type": "shell",
+            "windows": { "command": "python"},
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py","henan","1"],
+            "problemMatcher": [],
+            "group": {"kind": "build","isDefault": true}
+        },
+        {
+            "label": "henan",
+            "type": "shell",
+            "windows": { "command": "python"},
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py","tianjin","2"],
+            "problemMatcher": [],
+            "group": {"kind": "build","isDefault": true}
+        },
+        {
+            "label": "hebeiInner",
+            "type": "shell",
+            "windows": { "command": "python"},
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py","hebei","0"],
+            "problemMatcher": [],
+            "group": {"kind": "build","isDefault": true}
+        },
+        {
+            "label": "hebeiceshi",
+            "type": "shell",
+            "windows": { "command": "python"},
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py","hebei","1"],
+            "problemMatcher": [],
+            "group": {"kind": "build","isDefault": true}
+        },
+        {
+            "label": "hebei",
+            "type": "shell",
+            "windows": { "command": "python"},
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py","hebei","2"],
+            "problemMatcher": [],
+            "group": {"kind": "build","isDefault": true}
+        },
+       
+    ]
+}

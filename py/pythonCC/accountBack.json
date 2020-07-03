@@ -1,8 +1,0 @@
-{
-    "account" : [
-    	"username=AAAAAAA,password=123456,winWidth=768,winHeight=432,layout=1,roomid=1,winposx=0,winposy=0",
-    	"username=VVVVVVVV,password=123456,winWidth=768,winHeight=432,layout=2,roomid=1,winposx=960,winposy=0",
-    	"username=FFFFFFFFF,password=123456,winWidth=768,winHeight=432,layout=3,roomid=1,winposx=960,winposy=510",
-    	"username=HHHHHHHH,password=123456,winWidth=768,winHeight=432,layout=4,roomid=1,winposx=0,winposy=510"
-    ]
-}

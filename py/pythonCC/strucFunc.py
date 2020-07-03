@@ -7,17 +7,21 @@ import os
 import io
 import exampleFunc
 import json
+import shutil
 
-# çŸ¥è¯†ç‚¹ï¼š å¼•å…¥é”™è¯¯å¤„ç†æ–¹æ³•
-# çŸ¥è¯†ç‚¹ï¼š  ç»ˆç«¯ä¸­æ–‡ä¹±ç çš„é—®é¢˜:å¯ä»¥åŠ u : print(u"å¼•è·¯å¼•å…¥")
+# ÖªÊ¶µã£º ÒıÈë´íÎó´¦Àí·½·¨
+# ÖªÊ¶µã£º  ÖÕ¶ËÖĞÎÄÂÒÂëµÄÎÊÌâ:¿ÉÒÔ¼Óu : print(u"ÒıÂ·ÒıÈë")
 try:
     import helper
 except ImportError :
-     print(u"å¼•å…¥helper å¤±è´¥==å¯ä»¥å°è¯•å®‰è£…æˆ–è€…å…¶ä»–åœ°æ–¹å¼•å…¥")
-# æ–¹æ³•1 for çš„å†™æ³•
-# ä¸‹æ ‡ æ˜¯ä»0 å¼€å§‹ å¯ä»¥çœ‹å‡ºé»˜è®¤0 å¼€å§‹æœ‰é™åˆ¶å¦‚(2,5)æ‰è¾“å‡ºé™åˆ¶çš„ä¸‹æ ‡ï¼Œå¹¶ä¸”ä¸åŒ…å«5
-# å­—å…¸çš„å®šä¹‰æ–¹å¼ï¼š s = {} æˆ–è€… d = {key1 : value1, key2 : value2 } å¾ªç¯æ˜¯ä¸ç”¨åŠ  range 
-# appendæœ‰ç‚¹åƒæ•°ç»„push()
+     print("ÒıÈëhelper Ê§°Ü==¿ÉÒÔ³¢ÊÔ°²×°»òÕßÆäËûµØ·½ÒıÈë")
+# ·½·¨1 for µÄĞ´·¨
+# ÏÂ±ê ÊÇ´Ó0 ¿ªÊ¼ ¿ÉÒÔ¿´³öÄ¬ÈÏ0 ¿ªÊ¼ÓĞÏŞÖÆÈç(2,5)²ÅÊä³öÏŞÖÆµÄÏÂ±ê£¬²¢ÇÒ²»°üº¬5
+# ×ÖµäµÄ¶¨Òå·½Ê½£º s = {} »òÕß d = {key1 : value1, key2 : value2 } Ñ­»·ÊÇ²»ÓÃ¼Ó range 
+# appendÓĞµãÏñÊı×épush()
+EN_WAY=0;
+TEST_WAY=1;
+OUT_WAY=2;
 def ForAllIdes():
     threaholds=[100,100,12,152,150,1241]
     for i in range(5):
@@ -29,7 +33,7 @@ def ForAllIdes():
     ziDianData={"ab":15,"cf":89}
     for key in ((ziDianData)):
         print("key===[]",key,ziDianData[key])
-#çŸ¥è¯†ç‚¹ ï¼šæ²¡æœ‰ ++ nçš„å†™æ³•
+#ÖªÊ¶µã £ºÃ»ÓĞ ++ nµÄĞ´·¨
 #print(res+day)12
 def forExample_5():
     inputNum=[];
@@ -37,29 +41,76 @@ def forExample_5():
         print("python xiao biao===",i)
         x=int(input("int %d"%(i)))
         inputNum.append(x)
-        print("è¿™æ ·ä¹Ÿå¯ä»¥æ‰“å°",inputNum)
+        print("ÕâÑùÒ²¿ÉÒÔ´òÓ¡",inputNum)
 
-#çŸ¥è¯†ç‚¹ print å¯ä»¥ç›´æ¥æ‰“å°æ•°ç»„
+#ÖªÊ¶µã print ¿ÉÒÔÖ±½Ó´òÓ¡Êı×é
 # def forExample_6():
 def Fib(n):
     return 1 if n<=2 else Fib(n-1)+Fib(n-2)
-# å…³äºos.getcwd()è·å–å½“å‰è·¯å¾„ä¸æ­£ç¡® å¯ä»¥ç†è§£æœªè¿™ä¸ªè¿è¡Œç¨‹åºå½“å‰æ˜¯åœ¨ä»€ä¹ˆè·¯å¾„è¿è¡Œ,
-#ä¸èƒ½å½“ä½œæ˜¯è¿™ä¸ªæ–‡ä»¶å¾—è·¯å¾„ è¿™ç”¨vs è¿è¡Œè¿™ä¸ªè„šæœ¬å’Œç›´æ¥è¿è¡Œå°±å‘ç°æ˜¯ä¸åŒè·¯å¾„
+# ¹ØÓÚos.getcwd()»ñÈ¡µ±Ç°Â·¾¶²»ÕıÈ· ¿ÉÒÔÀí½âÎ´Õâ¸öÔËĞĞ³ÌĞòµ±Ç°ÊÇÔÚÊ²Ã´Â·¾¶ÔËĞĞ,
+#²»ÄÜµ±×÷ÊÇÕâ¸öÎÄ¼şµÃÂ·¾¶ ÕâÓÃvs ÔËĞĞÕâ¸ö½Å±¾ºÍÖ±½ÓÔËĞĞ¾Í·¢ÏÖÊÇ²»Í¬Â·¾¶
 #
 
-#åªè¯»â€œrâ€ å¦‚æœjsFile.write("tobbocc")ç›´æ¥æŠŠåŸæ¥çš„æ•°æ®éƒ½åˆ é™¤äº†
-# f = open('write_demo.txt', 'w')  #æ‰“å¼€æ–‡ä»¶ï¼Œå¾€å“ªä¸ªæ–‡ä»¶é‡Œå†™å…¥æ•°æ®ã€‚å¦‚æ— ï¼Œåˆ›å»ºã€‚
-# print ("æ–‡ä»¶åä¸º: ", f.name)         #f.nameæ‰“å°æ–‡ä»¶çš„åç§°ï¼Œå¸¦æ‹“å±•å
-# f.write('hello ,I am writing ')      #æ³¨æ„writeå†™å…¥æ˜¯å…ˆå°†æ–‡ä»¶å†…å®¹æ¸…ç©ºï¼Œç„¶åå†å†™å…¥ã€‚
-#content=f.read(3)  #3è¡¨ç¤ºè¯»å–3ä¸ªå­—ç¬¦ï¼Œè™½ç„¶è¯´æ˜¯byteã€‚ä½†æ˜¯æœ‰ä¸­æ–‡æ—¶å®é™…æŒ‰å­—ç¬¦è¿”å›çš„
-#read() ä¸åŠ æ•°ç»„å°±å…¨è¯»åŠ æ•°å°±è¯»å‡ ä¸ª,å¯ä»¥èµ‹å€¼ç»™å˜é‡readlineè¯»ä¸€è¡Œ
-# json.load è·å–è¿™ä¸ªæ‰ä¸€å˜å­—å…¸
-def testOpenJS():
-    nowDIr=os.getcwd()
-    print(os.path.abspath('main.py'))
-    accountPath="D:/giSelf/knowledgeAll/py/pythonCC/accounts.json"
+#Ö»¶Á¡°r¡± Èç¹ûjsFile.write("tobbocc")Ö±½Ó°ÑÔ­À´µÄÊı¾İ¶¼É¾³ıÁË
+# f = open('write_demo.txt', 'w')  #´ò¿ªÎÄ¼ş£¬ÍùÄÄ¸öÎÄ¼şÀïĞ´ÈëÊı¾İ¡£ÈçÎŞ£¬´´½¨¡£
+# print ("ÎÄ¼şÃûÎª: ", f.name)         #f.name´òÓ¡ÎÄ¼şµÄÃû³Æ£¬´øÍØÕ¹Ãû
+# f.write('hello ,I am writing ')      #×¢ÒâwriteĞ´ÈëÊÇÏÈ½«ÎÄ¼şÄÚÈİÇå¿Õ£¬È»ºóÔÙĞ´Èë¡£
+#content=f.read(3)  #3±íÊ¾¶ÁÈ¡3¸ö×Ö·û£¬ËäÈ»ËµÊÇbyte¡£µ«ÊÇÓĞÖĞÎÄÊ±Êµ¼Ê°´×Ö·û·µ»ØµÄ
+#read() ²»¼ÓÊı×é¾ÍÈ«¶Á¼ÓÊı¾Í¶Á¼¸¸ö,¿ÉÒÔ¸³Öµ¸ø±äÁ¿readline¶ÁÒ»ĞĞ
+# json.load »ñÈ¡Õâ¸ö²ÅÒ»±ä×Öµä
+#shutil.copyfile(src, dst)£º¸´ÖÆÎÄ¼şÄÚÈİ£¨²»°üº¬ÔªÊı¾İ£©´Ósrcµ½dst¡£ 
+def  DictionAryWork():
+    pathDiction={};
+    pathDiction["tianjin"]="update_project_tianjin";
+    pathDiction["henan"]="update_project_henan";
+    pathDiction["beijin"]="update_project_beijin";
+    pathDiction["hebei"]="update_project_hebei";
+    AreaName=sys.argv[1]
+    return pathDiction[AreaName]
+def OpenClientWL():
+    str = sys.argv[1]  # ÒòÎªsys.argv[0]ÊÇ½Å±¾Ãû³Æ,´ÓµÚÒ»Î»»ñÈ¡µ½×îºó
+    str2=sys.argv[2]
+    print(str)
+    print(str2)
+    # »ñÈ¡µ±Ç°ÎÄ¼şÂ·¾¶
+    father_path=getAbsAbsPath()
+    accountPath="";
+   # print(father_path)
+    DirCfgPackagePath=os.path.join(father_path,"../../src/libs/CfgPackage.js")
+    DirCGlobalPath=os.path.join(father_path,"../../src/libs/hall/GlobalConfig.js")
+    originCfgPackage=""
+    originGlobalConfig=""
+    gameArea=DictionAryWork()
+    print("gameArea===",gameArea)
+    if str2=="1" or  str2=="2" :
+        accountPath=os.path.join(father_path,"../accounts/account_four.json")
+        originCfgPackage =os.path.join(father_path,"../../PackConfig/"+gameArea+"/CfgPackage.js")
+        originGlobalConfig=os.path.join(father_path,"../../PackConfig/GlobalConfig_real.js")
+        if str2==2 :
+           originGlobalConfig=os.path.join(father_path,"../../PackConfig/GlobalConfig_real_real.js") 
+    else:
+        accountPath=os.path.join(father_path,"../accounts/account_test_four.json")
+        originCfgPackage =os.path.join(father_path,"../../PackConfig/"+gameArea+"/CfgPackage.js")
+        originGlobalConfig=os.path.join(father_path,"../../PackConfig/GlobalConfig_test.js")
+    shutil.copy(originCfgPackage, DirCfgPackagePath)
+    shutil.copy(originGlobalConfig, DirCGlobalPath)
     with open(accountPath) as data_file:    
-         data = json.load(data_file)
-         print(data)
-         print(type(data))
-testOpenJS()
+        data = json.load(data_file)
+        accountInfor=data["account"]
+        for xx in accountInfor:
+            palyInfor=xx;
+            argArrays=[]
+            argArrays.append("WeiLeProjV3")
+            argArrays.append(palyInfor)
+          #  print(argArrays)
+            exePath=os.path.join(father_path,"../../src/simulator/win32/")
+            os.chdir(exePath)
+            subprocess.Popen(argArrays)
+def getAbsAbsPath(): # »ñÈ¡µ±Ç°ÎÄµµËùÔÚ¾ø¶ÔÄ¿Â¼
+     # »ñÈ¡µ±Ç°ÎÄ¼şÂ·¾¶
+    current_path = os.path.abspath(__file__)
+    # »ñÈ¡µ±Ç°ÎÄ¼şµÄ¸¸Ä¿Â¼
+    father_path = os.path.abspath(os.path.dirname(current_path) + os.path.sep + ".")
+    return father_path
+if __name__ == '__main__':
+    OpenClientWL()

@@ -1,0 +1,42 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    //方法论
+    //   ${workspaceRoot}  "${file}
+    //方法1 直接在参数中,但是我没办法运行py中函数
+    // "args": [
+    //     "./PackConfig/sublime快捷键工具/ceshipy.py ", 
+    // ],
+    
+    //python -c "import b; b.my_sum(4,5)"
+
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ceshipython",
+            "type": "shell",
+            "windows": {
+                "command": "python"
+            },
+            "args": [
+                "./PackConfig/pythonCC/strucFunc.py",
+                "-12",
+               
+            ],
+            
+        },
+        {
+            "label": "lianxiGG",
+            "type": "shell",
+            "windows": {
+                "command": "python"
+            },
+            "args": [
+                "./PackConfig/sublime快捷键工具/lianxi.py",
+                "-12",
+               
+            ],
+        },
+
+    ]
+}
