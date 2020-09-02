@@ -371,3 +371,26 @@ function ArrarConCat()
 	//看书时不细心，导致在项目中调试了2个小时才发现这个bug,引以为戒。
 
 }
+
+var TJAreaGameManager =
+{
+    // OverLogicInterface
+	m_gameManager:{},
+	gameName :"",
+    registerClassName : function(GameName, className,gameobject)
+    {
+        this.gameName=GameName;
+        if(this.m_gameManager[GameName]==undefined)
+        {
+            this.m_gameManager[GameName]={}
+            this.m_gameManager[GameName][className]=gameobject
+        }
+        
+    },
+
+    getOverLogicInterface:function()
+    {
+        return this.m_gameData[this.gameName]["OverLogicInterface"]
+    },
+};
+TJAreaGameManager.registerClassName("aa","bb",11)
