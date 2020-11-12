@@ -112,5 +112,13 @@ def getAbsAbsPath(): # 获取当前文档所在绝对目录
     # 获取当前文件的父目录
     father_path = os.path.abspath(os.path.dirname(current_path) + os.path.sep + ".")
     return father_path
+def FileOperation():
+    father_path=getAbsAbsPath()
+    exePath=os.path.join(father_path,"护?少妇嫩模.txt")
+    f = io.open(exePath,mode="r",encoding="utf-8")
+    content = f.read()
+    print(content)
+    f.close()
 if __name__ == '__main__':
-    OpenClientWL()
+   # OpenClientWL()
+   FileOperation()

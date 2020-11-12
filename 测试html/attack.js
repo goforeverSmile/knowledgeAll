@@ -2,25 +2,36 @@ console.log("游戏开始")
 document.write("<script type='text/javascript' src='PKCard.js'></script>"); 
 //import 'js2.js';
 
-function ceshiFun()
-{
 
-       
-}
 //测试删除
 function ceshiDel()
 {
+    var huDesCfg = [
+        [ 0x00000000, "无" ],
+        [ 0x00000001, "平胡" ],
+        [ 0x00000002, "夹胡" ],
+        [ 0x00000004, "单调" ],
+        [ 0x00000008, "边胡" ],
+        [ 0x00000010, "把一" ],
+        [ 0x00000020, "飘把一" ],
+        [ 0x00000200, "超豪华七对" ],
+        [ 0x00000400, "干巴" ],
+        [ 0x00000800, "夹五" ],
+        [ 0x00001000, "小赌胡" ],
+        [ 0x00002000, "大赌胡" ],
+        [ 0x10000000, "四混加倍" ],
+        [ 0x20000000, "13幺" ],
+        
+    ]
 
-    var dataNum=[1,undefined,3,undefined,3,6,77]
-
-    for(i in dataNum)
+    for(i in huDesCfg)
     {
-        if(dataNum[i]==undefined)
+        if(huDesCfg[i][0]==0x00000010)
         {
-            dataNum.splice(i,1)
+            huDesCfg.splice(i,1,[ 0x00000010, "把一加倍"])
         }
     }
-
+    console.log("huDesCfg=-=====",huDesCfg)
 }
 
 ceshiDel()
