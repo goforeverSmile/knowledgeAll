@@ -1,0 +1,2 @@
+python copyFile.py
+pause

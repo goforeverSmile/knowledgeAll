@@ -1,0 +1,47 @@
+# Python Copy File - Sample Code
+# -*- coding: utf-8 -*-
+from shutil import copyfile
+from sys import exit
+
+source = "fromA\ArrayEx.js"
+target = "toB.js"
+
+# adding exception handling
+#copyfile目标没有会生成一个新的目标文件不能是目录
+try:
+   copyfile(source, target)
+except IOError as e:
+   print("Unable to copy file. %s" % e)
+   exit(1)
+except:
+   print("Unexpected error:", sys.exc_info())
+   exit(1)
+
+print("\nFile copy done!\n")
+
+
+
+
+from shutil import *
+import os 
+import time
+from os.path import basename
+
+def displayFileStats(filename):
+   file_stats = os.stat(basename(filename))
+   print('\tMode    :', file_stats.st_mode)
+   print('\tCreated :', time.ctime(file_stats.st_ctime))
+   print('\tAccessed:', time.ctime(file_stats.st_atime))
+   print('\tModified:', time.ctime(file_stats.st_mtime))
+
+os.mkdir('test')
+os.mkdir('test1')
+os.mkdir('test2')
+
+print('SOURCE:')
+displayFileStats(__file__)
+
+copy2(__file__, 'testfile')
+
+print('TARGET:')
+displayFileStats(os.path.realpath(os.getcwd() + '/test/testfile'))
