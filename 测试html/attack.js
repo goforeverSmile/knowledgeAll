@@ -1,7 +1,15 @@
-console.log("游戏开始")
-document.write("<script type='text/javascript' src='PKCard.js'></script>"); 
-//import 'js2.js';
+function PrintTable(PrintDatas,stringName)
+{
+    if(stringName)console.log("打印=="+stringName)
+    console.log(JSON.stringify(PrintDatas))
+}
+//弹框
+function printAlert(data)
+{
+    alert(data)
+}
 
+//(this instanceof Vue) js的三目运算符，只能是类不能基础类型对比 比如int bool、、、、
 
 //测试删除
 function ceshiDel()
@@ -21,9 +29,7 @@ function ceshiDel()
         [ 0x00002000, "大赌胡" ],
         [ 0x10000000, "四混加倍" ],
         [ 0x20000000, "13幺" ],
-        
     ]
-
     for(i in huDesCfg)
     {
         if(huDesCfg[i][0]==0x00000010)
@@ -31,10 +37,13 @@ function ceshiDel()
             huDesCfg.splice(i,1,[ 0x00000010, "把一加倍"])
         }
     }
-    console.log("huDesCfg=-=====",huDesCfg)
+    var dataNum=[1,2,3,55,3,6,77]
+    dataNum.forEach(function(num,index,arry)
+    {
+        PrintTable(index)
+    })
+    PrintTable(huDesCfg)
 }
-
-ceshiDel()
 
 var f1=function(){console.log(1)};
 var f2=function(){console.log(2)};
@@ -42,25 +51,6 @@ Function.call.call(Function.prototype.call,f2)//2
 Function.call.call(f1,f2);//1
 
 
-var dataNum=[1,2,3,55,3,6,77]
-dataNum.forEach(function(num,index,arry)
-{
-    //console.log("num=======",index)
-})
-
-// function aProTo(c)
-// { 
-//     this.b = "dddddd"; 
-//     this.d =function()
-//     { alert(this.b); }
-// }
-// console.dir(aProTo.prototype)
-// var obj  = new aProTo('cheshi01');
-// console.log("b---", obj.__proto__.b);  //
-// var obj2 = new aProTo('cheshi02');
-// console.log(typeof obj.prototype);//undefinealert(typeof a.prototype);//object
-// console.log(typeof obj);  //
-// console.log("b", obj.__proto__.b);  //
 
 
 function a(c)
@@ -82,7 +72,13 @@ obj.prototype.test1 =function()
 }
 var t = new obj('test');
 
-//t.test();   //alert('test');
+//t.test();   
+//alert('test');
+
+function People()
+{
+    this
+}
 
 
 window.color = 'red';
@@ -121,10 +117,8 @@ function calcJushu(palyerCount)
     console.log("人数是========",palyerCount)
     for(var i=1;i<30;i++)
     {
-        
+
         var dd=Math.floor((i-1)/palyerCount)
-      //  console.log("i=====",i)
-        //console.log("dd=====",dd)
         console.log("局数=====",dd+1)
     }
 }
@@ -163,27 +157,8 @@ function sortdata()
         {
             return 1
         }
-       
-		
 	}
 	ceshiData.sort(sortFun)
-	
-	for(var key in  ceshiData)
-	{
-		console.log("==zhi=========",ceshiData[key])
-	}
-
-	
-}
-
-function ceshi1818(num)
-{
-    var ToceshiData=[]
-    ToceshiData[num]=num
-    for(var i in ToceshiData)
-    {
-        console.log("i===",i,"值====",ToceshiData[i])
-    }
 }
 
 function ArratPk(ToceshiData)
@@ -193,8 +168,6 @@ function ArratPk(ToceshiData)
         console.log("i===",i,"值====",ToceshiData[i])
     }
 }
-//ArratPk(PKCard)
-
 
 function SpaceDec()
 {
@@ -222,27 +195,11 @@ function DataPaiXun()
 	{
 		ceShiDatas.push(PKCard[i]);
     }
-    
-//          ceShiDatas=[  // 51：Hei_3  3：Fang_3  35：Hong_3  19：Mei_3
-//         51,3,3,35,19
-//    ]
-
-//    ceShiDatas=[PKCard.Fang_1,PKCard.Mei_1,PKCard.Hong_1,PKCard.Hei_1,
-//     PKCard.Fang_3,PKCard.Mei_3,PKCard.Hong_3,PKCard.Hei_3,
-//     PKCard.Fang_2 ,PKCard.Fang_3 ,PKCard.Fang_4 ,PKCard.Fang_5 ,PKCard.Fang_6 ,
-//     PKCard.Fang_7 ,PKCard.Fang_8 ,PKCard.Fang_9 ,PKCard.Fang_10,PKCard.Fang_J ,
-//     PKCard.Fang_Q ,PKCard.Fang_K
-// ]
- 
-	//ceShiDatas.sort(function(){return Math.random()>0.5?-1:1;})
 	var  ceshiFunc=function(a,b)
 	{
 		return a>b
 	}
 	ArrayEx.sortByCondition(ceShiDatas,J5SKUtilities.SortByValue.bind(J5SKUtilities))
-	//ArrayEx.sortByCondition(ceShiDatas,ceshiFunc)
-	console.log("数据打乱重新排序=================")
-	
 }
 
 
@@ -290,9 +247,6 @@ function checkOutShunZi ()
 {
     var teshiData=[PKCard.Fang_1,PKCard.Mei_2,PKCard.Mei_3,PKCard.Fang_4 ,PKCard.Fang_5 ]
     teshiData=[PKCard.Mei_3 ,PKCard.Mei_4 ,PKCard.Fang_5 ,PKCard.Fang_6 ,PKCard.Fang_7]
-    //teshiData=[PKCard.Fang_6 ,PKCard.Fang_7 ,PKCard.Fang_8 ,PKCard.Fang_9 ,PKCard.Fang_10]
-    //teshiData= [PKCard.Fang_10,PKCard.Fang_J , PKCard.Fang_Q ,PKCard.Fang_K]
-
     var CardDataArray=[];
     for ( var key in PKCard )
 	{
@@ -313,14 +267,12 @@ function checkOutShunZi ()
 function ceshiGetMaxCards(outCards)
 {
     var inPairCard=[PKCard.Mei_3,PKCard.Mei_3 ]
-    //singleCard=[PKCard.Mei_3 ]
     var CardDataArray=[PKCard.Fang_1,PKCard.Fang_5,PKCard.Hong_1,PKCard.Hei_1,
         PKCard.Fang_3,PKCard.Mei_3,PKCard.Hong_3,PKCard.Hei_3,
         PKCard.Fang_2 ,PKCard.Fang_3 ,PKCard.Fang_4 ,PKCard.Fang_5 ,PKCard.Fang_6 ,
         PKCard.Fang_7 ,PKCard.Fang_2 ,PKCard.Fang_2 ,PKCard.Fang_2,PKCard.Fang_J ,
         PKCard.Fang_5 ,PKCard.Fang_5
     ]
-   // QHSSRuleImpl.GetMaxCards(CardDataArray,inPairCard,false);
     QHSSRuleImpl.GetPair(CardDataArray,inPairCard);
 }
 function Print(ArrayData,stringName)
@@ -368,40 +320,11 @@ function copyAtoB()
 // 品阶数组
 function ArrarConCat()
 {
-	//concat()把两个或者多个数组链接在一起，但是不改变已经存在的数组
-	//而是返回一个链接之后的新数组
 	var a = [1,2,3];
 	a.concat([4,5]);
 	console.log(a);
-	//此处输出为 [1, 2, 3]
-
 	var a = [1,2,3];
 	a = a.concat([4,5]);
 	console.log(a);
-	//此处输出为 [1, 2, 3 ,4 ,5]
-	//看书时不细心，导致在项目中调试了2个小时才发现这个bug,引以为戒。
-
 }
 
-var TJAreaGameManager =
-{
-    // OverLogicInterface
-	m_gameManager:{},
-	gameName :"",
-    registerClassName : function(GameName, className,gameobject)
-    {
-        this.gameName=GameName;
-        if(this.m_gameManager[GameName]==undefined)
-        {
-            this.m_gameManager[GameName]={}
-            this.m_gameManager[GameName][className]=gameobject
-        }
-        
-    },
-
-    getOverLogicInterface:function()
-    {
-        return this.m_gameData[this.gameName]["OverLogicInterface"]
-    },
-};
-TJAreaGameManager.registerClassName("aa","bb",11)
