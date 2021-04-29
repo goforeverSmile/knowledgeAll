@@ -21,7 +21,7 @@ def listFiles(dirPath):
     return fileList
  
 def main():
-    fileDir = "D:\dd\gbmj"
+    fileDir = "D:\giSelf\knowledgeAll\py"
     regex = ur'FUNC_SYS_ADD_ACCDETAIL' #正则表达式
     fileList = listFiles(fileDir)
  
@@ -31,7 +31,7 @@ def main():
 	f.seek(0)
 	f.truncate()
 	for line in all_the_lines:
-            str1 = '一色双龙会'# orgin 
+            str1 = '呼叫_367'# orgin 
             str2 = '呼叫_367'    #replace
 	    f.write(line.replace(str1 , str2))    
 	f.close()  
