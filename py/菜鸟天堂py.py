@@ -44,22 +44,15 @@ print os.path.abspath(os.curdir) #获取当前工作目录路径
 #4、组合路径返回
 os.path.join('file1','file2','file3')
 #合并得到路径 file1/file2/file3。
+用;分割同一行用：结束一行
+print 默认输出是换行的，如果要实现不换行需要在变量末尾加上 end=""：	
+ArrayDatt=[1,22,3,4,5,66,77]
+#for i in Arraydata: 输出的i 是数值
+for i in range(len(ArrayDatt)):
+    print(i,ArrayDatt[i])
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
 	
 	
 	
