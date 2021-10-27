@@ -1,0 +1,8 @@
+【一】copyfile.py
+1、cur_dir、dir两个路径不要改，在相同路径下创建相同名字的文件夹
+2、color_style支持颜色拓展，调用函数时直接传相对应的文件夹名称（style_0、style_1、style_2）
+3、脚本里 content 里面的内容改成自己地区的游戏
+【二】rename.py
+1、color_style支持颜色拓展，调用函数时直接传相对应的文件夹名称（style_0、style_1、style_2）
+2、脚本里 gameNames里面的内容改成自己地区的游戏
+【三】生成的js文件，需要通过notepad++手动转换成utf-8的编码格式，否则在sublime里面会出现乱码
