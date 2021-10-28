@@ -30,7 +30,7 @@
     # print(c)  #最终变量c仍然引用1
     # print c
 
-# 安装问题python2和python3多版本的pip安装问题
+# 2 安装问题python2和python3多版本的pip安装问题
 #为了获取数据信息我需要对tushare下载
 #这里就用到pip 需要在 C:\Python27\Scripts 文件夹下才可以使用pip命令
 #pip install tushare 反馈要要升级pip
@@ -62,9 +62,20 @@ ArrayDatt=[1,22,3,4,5,66,77]
 for i in range(len(ArrayDatt)):
     print(i,ArrayDatt[i])
 
+3 列表 append 和extend
+   a=[1,2,3]
+   b=[4,5,6]
+ a.append(b) 这个是按整个数组作为单个元素，加入进去
+ a.extend(b)这个是按一个元素添加进去
 
-
-	
+4、go 有一种写法就是  aaaa(b...)跟extend一样，按一个一个传入
+5、元组 Tuple  tuple1=()注意元组是()，数据是不能修该但，注意tup2=()这个是元组，但tup2=(20),这个是整形
+tup2=(20,)这个就是元祖。元祖不允许修改的，可以两个元祖相加
+6、f=open("xieru.js","w")//w：写入模式，没这个文件，自动回创建f.close();
+f.readLines();f.read(10)readlines读整个文件；
+7.// 加到系统环境中， normpath :把A//B，A/B /，A/./B和A /foo /../B都将被标准化为A/B。在Windows操作系统上，路径中的任何正斜杠('/')都将转换为反斜杠('\')。
+sys.path.append(os.path.normpath(os.path.join(os.path.dirname(__file__), 'src/tools/hall/utils')))
+sys.path.append(os.path.normpath(os.path.join(os.path.dirname(__file__), 'src/tools/png_quant')))
 	
 	
 	
