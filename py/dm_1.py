@@ -42,10 +42,14 @@ def get_ImageList(roots):
                print("image==========="+image)
                os.popen("python  E:/JS_Game/ClientProjectCls/src/tools/png_quant/png_quant.py " + image)
  
-ima_dir = "E:\JS_Game\ClientProjectCls\games\bjmj\images\bj_hutext\style_2\ben.png";
-img_dir = ima_dir.replace('\\','/');
-def changeName(filePath):
-    #检验给出的路径是否是一个文件：
+ #dm3
+ima_dir = "E:\\JS_Game\\ClientProjectCls\\games\\bjmj\images\\bj_hutext\\style_2\\ben.png";
+img_dir = ima_dir.replace('\\','/');#防止转义符出现还是用\\，不用\，不用\，拥/,
+ima_dir=os.path.normpath(ima_dir)
+print("#防止转义符出现还是用\\，不用\，不用\，拥/,",ima_dir)
+def changeName(filePath,changName):
+    #检验给出的路径是否是一个文件:
+    print("img_dir========",filePath)
     if not os.path.isdir(filePath) and not os.path.isfile(filePath):
         return False;
     if os.path.isfile(filePath):
@@ -53,10 +57,12 @@ def changeName(filePath):
         lists=splitPaths[1].split('.')#分割文件名以宽展名
         file_ext=lists[-1]#取出后缀名  
         img_ext=["bmp","jeg","gif","psd","jpg","png"];#也可以是 bmp|jeg|gif |psd|jpg;
+        newImageName=splitPaths[0]+"/"+"name."+file_ext;
+        print("newImageName=========",newImageName)
         if file_ext in img_ext:   # 这里写法 跟c++，jslua不一样的，可以直接in数组
             newImageName=splitPaths[0]+"/"+"name."+file_ext;
             print("newImageName=========",newImageName)
-            os.rename(filePath,splitPaths[0]+"/"+"name."+file_ext)
+            os.rename(filePath,splitPaths[0]+"/"+changName+"."+file_ext)
 
 if __name__=="__main__":
     print("enter===============");
