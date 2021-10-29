@@ -39,7 +39,7 @@
 # Pip相当于Linux上的yum，对python的开发者来说相当方便。我们再也无需去焦头烂额的寻找whl包，直接通过pip就可
 # 以在线安装（前提是有网络+pip版本合适的情况下,可见pip版本的重要性
 python -m pip install --upgrade pip 升级pip
-2.同时存在python2 和python3 的的时候制定，pip  python3 -m pip install pypinyin 
+2、同时存在python2 和python3 的的时候制定，pip  python3 -m pip install pypinyin 
 
 #路径问题  pyhon中的路径是/或者是\\而不是\
 #当前文件路径 	pwd = os.getcwd()
@@ -62,20 +62,28 @@ ArrayDatt=[1,22,3,4,5,66,77]
 for i in range(len(ArrayDatt)):
     print(i,ArrayDatt[i])
 
-3 列表 append 和extend
+3、 列表 append 和extend
    a=[1,2,3]
    b=[4,5,6]
  a.append(b) 这个是按整个数组作为单个元素，加入进去
  a.extend(b)这个是按一个元素添加进去
 
 4、go 有一种写法就是  aaaa(b...)跟extend一样，按一个一个传入
+
 5、元组 Tuple  tuple1=()注意元组是()，数据是不能修该但，注意tup2=()这个是元组，但tup2=(20),这个是整形
 tup2=(20,)这个就是元祖。元祖不允许修改的，可以两个元祖相加
-6、f=open("xieru.js","w")//w：写入模式，没这个文件，自动回创建f.close();
+
+6、f=open("xieRu.js","w")//w：写入模式，没这个文件，自动回创建f.close();
 f.readLines();f.read(10)readlines读整个文件；
+
 7.// 加到系统环境中， normpath :把A//B，A/B /，A/./B和A /foo /../B都将被标准化为A/B。在Windows操作系统上，路径中的任何正斜杠('/')都将转换为反斜杠('\')。
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(__file__), 'src/tools/hall/utils')))
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(__file__), 'src/tools/png_quant')))
+
+8.bat脚本运行python 时候如果没在同一个文件夹下可以先cd e:\aaa\bb
+
+9、
+
 	
 	
 	
