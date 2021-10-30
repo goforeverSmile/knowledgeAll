@@ -30,7 +30,7 @@
     # print(c)  #最终变量c仍然引用1
     # print c
 
-# 2 安装问题python2和python3多版本的pip安装问题
+# dm2 安装问题python2和python3多版本的pip安装问题
 #为了获取数据信息我需要对tushare下载
 #这里就用到pip 需要在 C:\Python27\Scripts 文件夹下才可以使用pip命令
 #pip install tushare 反馈要要升级pip
@@ -38,8 +38,15 @@
 # pip show pip 显示版本,拷贝一段百度知识:: Pip是一个Python的包管理工具，实际上它也可以被看待为是一个包，
 # Pip相当于Linux上的yum，对python的开发者来说相当方便。我们再也无需去焦头烂额的寻找whl包，直接通过pip就可
 # 以在线安装（前提是有网络+pip版本合适的情况下,可见pip版本的重要性
-python -m pip install --upgrade pip 升级pip
-2、同时存在python2 和python3 的的时候制定，pip  python3 -m pip install pypinyin 
+# python -m pip install --upgrade pip 升级pip
+
+#多版本共存的python，怎么怎么安装
+#dm3  cd ..
+# dm4、同时存在python2 和python3 的的时候制定,控制台命令到要的python3文件夹下/想要的版本文件夹下
+然后  python3(是否有改名称python ) - m （运行库用脚本去运行）pip install/uninstall  xxxx
+ pip  python3 -m pip install pypinin 这个是名称有修该为python3的，
+没有修该名称的话，那要cd到要安装文件夹下。还有开始的是查看查看版本python3 ，记得退出下exit();感觉每次版本查看后
+会pip会失败。
 
 #路径问题  pyhon中的路径是/或者是\\而不是\
 #当前文件路径 	pwd = os.getcwd()
