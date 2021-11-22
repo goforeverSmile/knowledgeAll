@@ -32,7 +32,7 @@ def get_ImageList(roots):
     nameNormpth=os.path.normpath(roots);
     print(nameNormpth)
     for root ,dirs ,files in os.walk(nameNormpth):
-       # print('root_dir:============', root)  # 表示正在遍历的文件夹的名字
+       # print('root_dir:============', root)  # 表示正在遍历路径
       #  print('sub_dirs:==========', dirs)  # 记录正在遍历的文件夹下的子文件夹集合
        # print('files:=========', files)  # 记录正在遍历的文件夹中的文件集合
         for file in files:
@@ -63,6 +63,15 @@ def changeName(filePath,changName):
             newImageName=splitPaths[0]+"/"+"name."+file_ext;
             print("newImageName=========",newImageName)
             os.rename(filePath,splitPaths[0]+"/"+changName+"."+file_ext)
+
+def copy_files(cur_dir):
+    # root 路径  dirs 文件夹  files 文件
+    for root ,dirs,files in os.walk(cur_dir):
+        print("root ===",root)
+        print("dirs======",dirs)
+        print("files=======",files)
+
+
 
 if __name__=="__main__":
     print("enter===============");
