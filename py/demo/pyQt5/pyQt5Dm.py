@@ -12,6 +12,7 @@ last edited: January 2015
 """
  #  Geometry  几何图形
  # 使用命令行pyuic5 -o login.py login.ui转换成.py文件。调用格式为pyuic5 -o {输出文件名} {输入designer设计好的.ui
+# https://www.jb51.net/article/167015.htm
 import sys
  
 import sys
