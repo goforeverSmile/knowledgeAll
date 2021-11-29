@@ -11,11 +11,12 @@ website: py40.com
 last edited: January 2015
 """
  #  Geometry  几何图形
+ # 使用命令行pyuic5 -o login.py login.ui转换成.py文件。调用格式为pyuic5 -o {输出文件名} {输入designer设计好的.ui
 import sys
  
 import sys
-from PyQt5.QtCore import QAbstractAnimation, QCoreApplication
-from PyQt5.QtWidgets import QApplication, QDesktopWidget, QMessageBox, QPushButton, QToolTip,QWidget
+from PyQt5.QtCore import QAbstractAnimation, QCoreApplication, Qt
+from PyQt5.QtWidgets import QApplication, QBoxLayout, QDesktopWidget, QLCDNumber, QMessageBox, QPushButton, QSlider, QToolTip,QWidget
 from PyQt5.QtGui import QFont, QIcon
 #dm2 工具栏提示，按钮，按钮退出
 class Example(QWidget):#继承QWidget
@@ -44,6 +45,7 @@ class Example(QWidget):#继承QWidget
     self.setWindowIcon(QIcon('web.png'))
     self.center();
     self.show();
+    self.SlideNum();
     
 #demo 消息栏  这个大差后自动调整的
   def closeEvent(self,event):
@@ -62,6 +64,20 @@ class Example(QWidget):#继承QWidget
         #显示到屏幕中心
       qr.moveCenter(cp)
       self.move(qr.topLeft())
+  def SlideNum(self): 
+      lcd = QLCDNumber(self)
+      sld = QSlider(Qt.Horizontal, self)
+      vbox = QBoxLayout(QBoxLayout.LeftToRight)
+      vbox.addWidget(lcd)
+      vbox.addWidget(sld)
+ 
+      self.setLayout(vbox)
+      sld.valueChanged.connect(lcd.display)
+      
+      self.setGeometry(300, 300, 250, 150)
+      self.setWindowTitle('Signal & slot')
+      self.show()
+
 
 #demo 1 基本功框
 def appcreate():
