@@ -1,13 +1,54 @@
 # encoding=utf-8
 
+# 
+map = {
+  "tjtg" : {
+     "暴成":["TJTGMJGameDefine.HuType_BaoCheng",1],
+      "干插":["TJTGMJGameDefine.HuType_GanCha",1],
+     "上大台":["TJTGMJGameDefine.HuType_ShangDaTai",1],
+     "上二台":["TJTGMJGameDefine.HuType_ShangErTai",],
+     "天胡":["TJTGMJGameDefine.HuType_TianHu",3],
+     "地胡":["TJTGMJGameDefine.HuType_DiHu",3],
+     "清一色":["TJTGMJGameDefine.HuType_QingYiSe",1],
+     "本混":["TJTGMJGameDefine.HuType_BenHunLong",1],
+     "素的":["TJTGMJGameDefine.HuType_SuDe",1],
+     "捉五":["TJTGMJGameDefine.HuType_ZhuoWu",1],
+     "混吊":["TJTGMJGameDefine.HuType_HunDiao",1],
+     "双混吊":["TJTGMJGameDefine.HuType_ShuangHunDiao",1],
+     "龙":["TJTGMJGameDefine.HuType_Long",2],
+     "满贯":["TJTGMJGameDefine.HuType_ManGuan",1],
+     "七对":["TJTGMJGameDefine.HuType_QiDui",1],
+     "素捉五":["TJTGMJGameDefine.HuType_SuZhuoWu",2],
+     "混吊捉五":["TJTGMJGameDefine.HuType_HunDiaoZhuoWu",1],
+     "双混吊捉五":["TJTGMJGameDefine.HuType_ShuangHunDiaoZhuoWu",1],
+     "素龙":["TJTGMJGameDefine.HuType_SuLong",1],
+     "混吊龙":["TJTGMJGameDefine.HuType_HunDiaoLong",1],
+     "捉五龙":["TJTGMJGameDefine.HuType_ZhuoWuLong",1],
+     "素捉五龙":["TJTGMJGameDefine.HuType_SuZhuoWuLong",1],
+     "混吊捉五龙":["TJTGMJGameDefine.HuType_HunDiaoZhuoWuLong",1],
+     "双混吊捉五龙":["TJTGMJGameDefine.HuType_ShuangHunDiaoZhuoWuLong",1],
+     "素七对":["TJTGMJGameDefine.HuType_SuQiDui",1],
+     "混吊七对":["TJTGMJGameDefine.HuType_HunDiaoQiDui",1],
+     "捉五七对":["TJTGMJGameDefine.HuType_ZhuoWuQiDui",1],
+     "素捉五七对":["TJTGMJGameDefine.HuType_SuZhuoWuQiDui",1],
+     "混吊捉五七对":["TJTGMJGameDefine.HuType_HunDiaoZhuoWuQiDui",1],
+     "素满贯":["TJTGMJGameDefine.HuType_SuManGuan",1],
+     "混吊满贯":["TJTGMJGameDefine.HuType_HunDiaoManGuan",1],
+     "捉五满贯":["TJTGMJGameDefine.HuType_ZhuoWuManGuan",1],
+     "素捉五满贯":["TJTGMJGameDefine.HuType_SuZhuoWuManGuan",1],
+     "混吊捉五满贯":["TJTGMJGameDefine.HuType_HunDiaoZhuoWuManGuan",1],	     
+    },
+
+}
+
 import os
-def generJsMap(map):
-	styles = ["", "HuEffectStyle.Low", "HuEffectStyle.Medium",
+def generJsMap(gameName,map):
+	styles = ["HuEffectStyle.Low", "HuEffectStyle.Medium",
 			  "HuEffectStyle.High", "HuEffectStyle.Special"]
 
 
-	colors = ["", "HuNanGreenImageMap",
-		  "HuNanPurpleImageMap", "AREA_TIANJINHuImageMap"]
+	colors = ["AREA_TIANJINHuImageMapstyle_1", "AREA_TIANJINHuImageMapstyle_2",
+		  "AREA_TIANJINHuImageMapstyle_3", "HuImageMapspecial"]
 	outWrintArr=[]
 
 	for key in map:
@@ -32,20 +73,20 @@ def generJsMap(map):
 		for char in key:
 			if char not in filterSet:
 				keyName = "\""+char+"\""
-				line5 ="\t\t"+keyName +r" : "+colors[color] +"["+keyName+"]" ",\n"
+				line5 ="\t\t"+keyName +r" : "+gameName.upper()+colors[color] +"["+keyName+"]" ",\n"
 				# if exIndex == 4:
-				# 	line5 ="\t\t"+keyName +r" : "+colors[exIndex] +"["+keyName+"]" ",\n"
+					# line5 ="\t\t"+keyName +r" : "+colors[exIndex] +"["+keyName+"]" ",\n"
 				outWrintArr.append(line5)
 				filterSet.add(char)
 		
 		line6 = "\t\t},\n"
 		outWrintArr.append(line6)
 
-		line7 = "\t},\n"
+		line7 = "\t},"
 		outWrintArr.append(line7)
 
-	jsName ='HuEffectConfigs'
-	file_path = os.path.join(os.getcwd(), jsName+".js")
+	jsName =gameName.upper()+'HuEffectConfigs'
+	file_path = os.path.join(os.getcwd(), jsName+'.js')
 	f = open(file_path, 'w',  encoding='utf-8')
 	f.write("\"use strict\"\n\n")
 	f.write("var "+jsName+" = {\n")
@@ -53,68 +94,52 @@ def generJsMap(map):
 	f.write("\t\tvar configs = [")
 	for a in outWrintArr:
 		f.write("\t"+a)
-	f.write("\t\t]\n\treturn configs\n},")
-	f.write("\t\t\n};\n")
+	f.write("\n\t\t]\n\t\treturn configs\n\t},\n\n")
+
+	# 以下为加入测试函数
+	f.write("\tceshiToOutAllPrintType:function(wEndType, dianpaoChairId, huChairIds, huTypes, huConfigData,llMoney)\n\t{\n")
+	f.write("\t\tvar delay = cc.DelayTime.create(3)\n")
+
+	f.write("\t\tvar configs =  [\n")
+	for key in map:
+		f.write("\t\t\t"+map[key][0]+",  //"+key+"\n")
+	f.write("\t\t]\n")
+
+	f.write("\t\tthis.index=0\n")
+	f.write("\t\tvar seq = cc.Sequence.create(delay, cc.CallFunc.create(function () {\n")
+	f.write("\t\t\tvar ide=0\n")
+	f.write("\t\t\thuTypes=[]\n")
+	f.write("\t\t\tfor(var key  in configs) {\n")
+	f.write("\t\t\t\tif(ide == this.index) {\n")
+
+	f.write("\t\t\t\t\thuTypes.push(configs[key])\n")
+	f.write("\t\t\t\t\tbreak\n")
+	f.write("\t\t\t\t}\n")
+	f.write("\t\t\t\tide++\n")
+	f.write("\t\t\t}\n")
+
+	f.write("\t\t\tRecvGameEnd.playShowyHuEffect(wEndType, dianpaoChairId, huChairIds, huTypes, huConfigData,llMoney)\n")
+	f.write("\t\t\tthis.index++\n")
+	f.write("\t\t\tvar arr = Object.keys(configs)\n")
+	f.write("\t\t\tif(this.index>=arr.length) {\n")
+	f.write("\t\t\t\tthis.index=0\n")
+	f.write("\t\t\t}\n")
+
+	f.write("\t\t}.bind(this)))\n")
+
+	f.write("\t\tAction.newRepeatForever()\n")
+	f.write("\t\t\t.addAction(seq)\n")
+	f.write("\t\t\t.run(BaseLogic.getRunningScene())\n")
+
+	f.write("\t},\n")
+
+	f.write("};\n")
 	f.close()
 
-
-
-
-
-map = {
-     "暴成":["TJTGMJGameDefine.HuType_BaoCheng",3],
-     "干插":["TJTGMJGameDefine.HuType_GanCha",3],
-     "上大台":["TJTGMJGameDefine.HuType_ShangDaTai",3],
-     "上二台":["TJTGMJGameDefine.HuType_ShangErTai",3],
-     "天胡":["TJTGMJGameDefine.HuType_TianHu",3],
-     "地胡":["TJTGMJGameDefine.HuType_DiHu",3],
-     "清一色":["TJTGMJGameDefine.HuType_QingYiSe",3],
-     "本混":["TJTGMJGameDefine.HuType_BenHunLong",3],
-     "素的":["TJTGMJGameDefine.HuType_SuDe",3],
-     "捉五":["TJTGMJGameDefine.HuType_ZhuoWu",3],
-     "混吊":["TJTGMJGameDefine.HuType_HunDiao",3],
-     "双混吊":["TJTGMJGameDefine.HuType_ShuangHunDiao",3],
-     "龙":["TJTGMJGameDefine.HuType_Long",3],
-     "满贯":["TJTGMJGameDefine.HuType_ManGuan",3],
-     "七对":["TJTGMJGameDefine.HuType_QiDui",3],
-     "素捉五":["TJTGMJGameDefine.HuType_SuZhuoWu",3],
-     "混吊捉五":["TJTGMJGameDefine.HuType_HunDiaoZhuoWu",3],
-     "双混吊捉五":["TJTGMJGameDefine.HuType_ShuangHunDiaoZhuoWu",3],
-     "素龙":["TJTGMJGameDefine.HuType_SuLong",3],
-     "混吊龙":["TJTGMJGameDefine.HuType_HunDiaoLong",3],
-     "捉五龙":["TJTGMJGameDefine.HuType_ZhuoWuLong",3],
-     "素捉五龙":["TJTGMJGameDefine.HuType_SuZhuoWuLong",3],
-     "混吊捉五龙":["TJTGMJGameDefine.HuType_HunDiaoZhuoWuLong",3],
-     "双混吊捉五龙":["TJTGMJGameDefine.HuType_ShuangHunDiaoZhuoWuLong",3],
-     "素七对":["TJTGMJGameDefine.HuType_SuQiDui",3],
-     "混吊七对":["TJTGMJGameDefine.HuType_HunDiaoQiDui",3],
-     "捉五七对":["TJTGMJGameDefine.HuType_ZhuoWuQiDui",3],
-     "素捉五七对":["TJTGMJGameDefine.HuType_SuZhuoWuQiDui",3],
-     "混吊捉五七对":["TJTGMJGameDefine.HuType_HunDiaoZhuoWuQiDui",3],
-     "素满贯":["TJTGMJGameDefine.HuType_SuManGuan",3],
-     "混吊满贯":["TJTGMJGameDefine.HuType_HunDiaoManGuan",3],
-     "捉五满贯":["TJTGMJGameDefine.HuType_ZhuoWuManGuan",3],
-     "素捉五满贯":["TJTGMJGameDefine.HuType_SuZhuoWuManGuan",3],
-     "混吊捉五满贯":["TJTGMJGameDefine.HuType_HunDiaoZhuoWuManGuan",3],			
-}
-
+if __name__ == "__main__":
+	for key in map:
+		generJsMap(key,map[key])
 	
 
 
 
-
-generJsMap(map)
-
-
-# { 
-#     //*****************
-#     huType:  0x01000000,
-#     text: "自摸",
-#     style: HuEffectStyle.Medium,
-
-#     fontConfig: {
-#         "自" :  HuNanYellowImageMap["自"],
-#         "摸" :  HuNanYellowImageMap["摸"],
-#     }
-
-# },
