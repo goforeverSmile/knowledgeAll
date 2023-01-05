@@ -28,5 +28,5 @@ def _change_file_name(path, file_name, original_name, new_name):
 # 改变指定目录下的文件名 END
  
  
-root_path = R"E:\SiChuanCoinProjJS\games\luzh\historyBase"
-change_file_name(root_path, "SC", "LUZH")
+root_path = R"E:\JS_Game\ClientProjectCls\games\tdkj"
+change_file_name(root_path, "gdtd", "tdkj")

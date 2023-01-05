@@ -4,14 +4,14 @@ import os
 import re
 
 
-path = 'E:\\SiChuanCoinProjJS\\games\\luzh'
+path = 'E:\\SiChuanCoinProjJS\\games\\yibi'
+SHORT_NAME="YIBI"
 dir_list = []
 
 FUN_DO={
      "SEARCH_OPEN":False,
 }
 
-SHORT_NAME="LUZH"
 ALL_DATA_KEY={
      "SCBaseBusinessDelegate":SHORT_NAME+"BaseBusinessDelegate",
      "SCBaseClient":SHORT_NAME+"BaseClient",
