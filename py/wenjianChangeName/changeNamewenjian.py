@@ -6,7 +6,7 @@ class BatchRename():
     批量重命名文件夹中的图片文件
     '''
     def __init__(self):
-        self.path = 'D:\图片'  #表示需要命名处理的文件夹
+        self.path = 'D:\giSelf\knowledgeAll\py\runbat\TestRes'  #表示需要命名处理的文件夹
  
     def rename(self):
         filelist = os.listdir(self.path)      #获取文件路径
