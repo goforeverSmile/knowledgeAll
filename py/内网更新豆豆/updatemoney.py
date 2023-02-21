@@ -18,5 +18,5 @@ def UpdateMoney(uid,money):
     updateUrl = updateUrl.replace('inputsession', resobj['session'])
     requests.get(updateUrl)
 
-UpdateMoney('16307', '-6000000') 
+UpdateMoney('16302', '200000000') 
 
