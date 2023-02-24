@@ -48,30 +48,14 @@ class TKDoWindow():
             listb.insert(0, item)
         for item in movie:              # 第二个小部件插入数据
             listb2.insert(0, item)
-        listb.pack()                    # 将小部件放置到主窗口中
-        listb2.pack()
-
-     #功能函数
-    def str_trans_to_md5(self):
-        src = self.init_data_Text.get(1.0,END).strip().replace("\n","").encode()
-        #print("src =",src)
-        if src:
-            try:
-                myMd5 = hashlib.md5()
-                myMd5.update(src)
-                myMd5_Digest = myMd5.hexdigest()
-                #print(myMd5_Digest)
-                #输出到界面
-                self.result_data_Text.delete(1.0,END)
-                self.result_data_Text.insert(1.0,myMd5_Digest)
-                self.write_log_to_Text("INFO:str_trans_to_md5 success")
-            except:
-                self.result_data_Text.delete(1.0,END)
-                self.result_data_Text.insert(1.0,"字符串转MD5失败")
-        else:
-            self.write_log_to_Text("ERROR:str_trans_to_md5 failed")
+       # listb.pack()                    # 将小部件放置到主窗口中
+       # listb2.pack()
+        listb.grid(row=0,column=3)
+        listb2.grid(row=0,column=6)
 
     def set_init_window(self,tkWin):
+        # 这个主要讲了函数                         https://www.runoob.com/python/python-gui-tkinter.html
+        # 这个主要讲了函数里面，参数使用方法         https://www.jianshu.com/p/fdde4a9d1d9d
         tkWin.title("文本处理工具_v1.0")           #窗口名
         #self.init_window_name.geometry('320x160+10+10')                         #290 160为窗口大小，+10 +10 定义窗口弹出时的默认展示位置
         tkWin.geometry('1068x681+10+10')                         #290 160为窗口大小，+10 +10 定义窗口弹出时的默认展示位置
@@ -94,11 +78,32 @@ class TKDoWindow():
         #按钮
         self.str_trans_to_md5_button = Button(tkWin, text="字符串转MD5", bg="lightblue", width=10,command=self.str_trans_to_md5)  # 调用内部方法  加()为直接调用
         self.str_trans_to_md5_button.grid(row=1, column=11) 
+    
+     #功能函数
+    def str_trans_to_md5(self):
+        src = self.init_data_Text.get(1.0,END).strip().replace("\n","").encode()
+        #print("src =",src)
+        if src:
+            try:
+                myMd5 = hashlib.md5()
+                myMd5.update(src)
+                myMd5_Digest = myMd5.hexdigest()
+                #print(myMd5_Digest)
+                #输出到界面
+                self.result_data_Text.delete(1.0,END)
+                self.result_data_Text.insert(1.0,myMd5_Digest)
+                self.write_log_to_Text("INFO:str_trans_to_md5 success")
+            except:
+                self.result_data_Text.delete(1.0,END)
+                self.result_data_Text.insert(1.0,"字符串转MD5失败")
+        else:
+            self.write_log_to_Text("ERROR:str_trans_to_md5 failed")
+
     def TkWindow(self):
         # 创建窗口
         tkWindow = Tk()                     # 创建窗口对象的背景色
         self.set_init_window(tkWindow);
-       # self.ListBoxCreat(tkWindow);
+        self.ListBoxCreat(tkWindow);
         tkWindow.mainloop();
 if __name__ == '__main__':
     #demo = BatchRename()
