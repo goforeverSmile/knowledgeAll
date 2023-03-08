@@ -60,10 +60,10 @@ class TKDoWindow():
             listb.insert(0, item)
         for item in movie:              # 第二个小部件插入数据
             listb2.insert(0, item)
-       # listb.pack()                    # 将小部件放置到主窗口中
-       # listb2.pack()
-        listb.grid(row=0,column=3)
-        listb2.grid(row=0,column=6)
+        listb.pack()                    # 将小部件放置到主窗口中
+        listb2.pack()
+       # listb.grid(row=0,column=3)
+        #listb2.grid(row=0,column=6)
 
     def Print_Log(self):
         print("目前先这个样")
@@ -105,7 +105,8 @@ class TKDoWindow():
          # 默认居中对齐的，
         BtInfors=["福成股份","中电兴发","保利","万科","恒生科技"]
         for inf  in BtInfors:
-            bt=Checkbutton(tkWin,text=inf,command=self.Print_Log)
+            h1 = tkinter.BooleanVar() # 设置选择框对象
+            bt=Checkbutton(tkWin,text=inf,fg="blue",variable=h1,command=self.Print_Log)
             bt.pack(anchor="w") #side="left"
 
     def UTGridtoBt(self,tkWin):
@@ -182,14 +183,25 @@ class TKDoWindow():
         else:
             self.write_log_to_Text("ERROR:str_trans_to_md5 failed")
 
-    def TkWindow(self):
+    def MainWindow(self):
+        print("主要调用对应")
         # 创建窗口
-        tkWindow = Tk()                     # 创建窗口对象的背景色
-        self.set_init_window(tkWindow);
+       
+     #   self.set_init_window(tkWindow);
       #  self.ListBoxCreat(tkWindow);
-        tkWindow.mainloop();
+       
+
+def MainWindow(tkWindow):
+    print("主要界面========")
+        # 创建窗口
+       
+     #   self.set_init_window(tkWindow);
+      #  self.ListBoxCreat(tkWindow);
+        
 if __name__ == '__main__':
     #demo = BatchRename()
    # demo.rename()
-    wd = TKDoWindow()
-    wd.TkWindow()
+    tkWindow = Tk()                     # 创建窗口对象的背景色
+    MainWindow(tkWindow)
+    tkWindow.mainloop();
+    tkWindow.TkWindow()
