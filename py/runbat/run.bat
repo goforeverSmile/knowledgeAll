@@ -1,6 +1,6 @@
 
 cd ./
-python3 changeName.py
+python3 ClassPython.py
 
 pause()
 
