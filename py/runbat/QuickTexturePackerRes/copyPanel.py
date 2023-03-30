@@ -28,14 +28,14 @@ dst_folders = {
 }
 
 dst_foldersShanXi = { 
-   "E:\PK_MJGames_S\games\anka\TexturePackerRes\anka\anka_ui_panel",
-   "E:\PK_MJGames_S\games\baoj\TexturePackerRes\baoj\baoj_ui_panel",
+   "E:\PK_MJGames_S\games\/anka\TexturePackerRes\/anka\/anka_ui_panel",
+   "E:\PK_MJGames_S\games\/baoj\TexturePackerRes\/baoj\/baoj_ui_panel",
    "E:\PK_MJGames_S\games\hanz\TexturePackerRes\hanz\hanz_ui_panel",
    "E:\PK_MJGames_S\games\hozh\TexturePackerRes\hozh\hozh_ui_panel",
    "E:\PK_MJGames_S\games\shlu\TexturePackerRes\shlu\shlu_ui_panel",
-   "E:\PK_MJGames_S\games\tonc\TexturePackerRes\tonc\tonc_ui_panel",
+   "E:\PK_MJGames_S\games\/tonc\TexturePackerRes\/tonc\/tonc_ui_panel",
    "E:\PK_MJGames_S\games\wein\TexturePackerRes\wein\wein_ui_panel",
-   "E:\PK_MJGames_S\games\xian\TexturePackerRes\xian\xian",
+
    "E:\PK_MJGames_S\games\yana\TexturePackerRes\yana\yana_ui_panel",
    "E:\PK_MJGames_S\games\yuli\TexturePackerRes\yuli\yuli_ui_panel",
   
@@ -66,6 +66,6 @@ def copytree(src,dst):
             shutil.copy(from_dir,to_dir)#复制文件
 
 #copytree(src_folder,dst_folderSing)
-for dis in dst_folders:
+for dis in dst_foldersShanXi:
     disPath = os.path.abspath(dis)
     copytree(src_folder,disPath)
