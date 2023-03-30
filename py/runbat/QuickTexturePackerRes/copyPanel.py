@@ -66,6 +66,6 @@ def copytree(src,dst):
             shutil.copy(from_dir,to_dir)#复制文件
 
 #copytree(src_folder,dst_folderSing)
-for dis in dst_foldersShanXi:
+for dis in dst_folders:
     disPath = os.path.abspath(dis)
     copytree(src_folder,disPath)

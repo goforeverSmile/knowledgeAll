@@ -33,8 +33,8 @@ def copyFolderWithCsv(data):
     for shorName in shortNames:
         batFile = data.get(shorName)
         batPath = os.path.dirname(batFile)
-        dest_folder = findFolder(shorName)
-        print(dest_folder)
+        #dest_folder = findFolder(shorName)
+       # print(dest_folder)
         # 如果目标文件夹已经存在，则删除该文件夹并重新拷贝
       #  shutil.rmtree(dest_folder)
        # shutil.copytree(src_folder, dest_folder)        
