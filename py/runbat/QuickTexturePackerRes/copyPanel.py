@@ -38,6 +38,7 @@ dst_foldersShanXi = {
 
    "E:\PK_MJGames_S\games\yana\TexturePackerRes\yana\yana_ui_panel",
    "E:\PK_MJGames_S\games\yuli\TexturePackerRes\yuli\yuli_ui_panel",
+    #"E:\PK_MJGames_S\games\xian\TexturePackerRes\xian\xian",  要手动拷贝西安
   
 }
 #方法1
@@ -66,6 +67,6 @@ def copytree(src,dst):
             shutil.copy(from_dir,to_dir)#复制文件
 
 #copytree(src_folder,dst_folderSing)
-for dis in dst_folders:
+for dis in dst_foldersShanXi:
     disPath = os.path.abspath(dis)
     copytree(src_folder,disPath)
