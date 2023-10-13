@@ -14,7 +14,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 cur_dir = os.getcwd() # 当前路径
-# cur_dir='F:/work/client/DDZHGamesJS'
+cur_dir='F:/work/client/DDZHGamesJS'
 print(u"输入mj/pk:")
 modelName = raw_input("")
 common_dir = ("../games/{}_common/TexturePackerRes/{}_ui_panel/{}_ui_panel/").format(modelName,modelName,modelName)
@@ -33,11 +33,11 @@ def copyFolderWithCsv(data):
     for shorName in shortNames:
         batFile = data.get(shorName)
         batPath = os.path.dirname(batFile)
-        #dest_folder = findFolder(shorName)
-       # print(dest_folder)
+        dest_folder = findFolder(shorName)
+        print(dest_folder)
         # 如果目标文件夹已经存在，则删除该文件夹并重新拷贝
-      #  shutil.rmtree(dest_folder)
-       # shutil.copytree(src_folder, dest_folder)        
+        shutil.rmtree(dest_folder)
+        shutil.copytree(src_folder, dest_folder)        
         print(u'文件夹拷贝完成')
         print(u'开始合图')
         # 切换到bat目录下

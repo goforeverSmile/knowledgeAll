@@ -3,9 +3,31 @@ import shutil
 import os
 
 # 定义源文件夹和目标文件夹的路径
-src_folder = os.path.abspath("E:\GD_Project_JS\games\mj_common\TexturePackerRes\mj_ui_panel\mj_ui_panel")
+src_folder = os.path.abspath("E:\HuBei_Project_JS\games\mj_common\TexturePackerRes\mj_ui_panel\mj_ui_panel")
 dst_folderSing =  os.path.abspath("E:\GD_Project_JS\games\gdcs\TexturePackerRes\gdcs_ui_panel\gdcs_ui_panel")
 dst_folders = { 
+   "E:\HuBei_Project_JS\games\ahch\TexturePackerRes\res-ahch\ahch_ui_panel",
+   "E:\HuBei_Project_JS\games\ahaq\TexturePackerRes\Res_ahaq\ahaq_ui_panel",
+   "E:\GD_Project_JS\games\gdcz\TexturePackerRes\gdcz_ui_panel\gdcz_ui_panel",
+   "E:\GD_Project_JS\games\gdgg\TexturePackerRes\gdgg_ui_panel\gdgg_ui_panel",
+   "E:\GD_Project_JS\games\gdhy\TexturePackerRes\gdhy_ui_panel\gdhy_ui_panel",
+   "E:\GD_Project_JS\games\gdhz\TexturePackerRes\gdhz\gdhz",
+   "E:\GD_Project_JS\games\gdjp\TexturePackerRes\gdjp\gdjp",
+   "E:\GD_Project_JS\games\gdjy\TexturePackerRes\gdjy_ui_panel\gdjy_ui_panel",
+   "E:\GD_Project_JS\games\gdkj\TexturePackerRes\gdkj_ui_panel\gdkj_ui_panel",
+   "E:\GD_Project_JS\games\gdma\TexturePackerRes\gdma_ui_panel\gdma_ui_panel",
+   "E:\GD_Project_JS\games\gdmh\TexturePackerRes\gdmh_ui_panel\gdmh_ui_panel",
+   "E:\GD_Project_JS\games\gdqy\TexturePackerRes\gdqy_ui_panel\gdqy_ui_panel",
+   "E:\GD_Project_JS\games\gdsg\TexturePackerRes\gdsg_ui_panel\gdsg_ui_panel",
+   "E:\GD_Project_JS\games\gdsw\TexturePackerRes\gdsw_ui_panel\gdsw_ui_panel",
+   "E:\GD_Project_JS\games\gdtd\TexturePackerRes\gdtd\gdtd",
+   "E:\GD_Project_JS\games\gdyj\TexturePackerRes\gdyj_ui_panel\gdyj_ui_panel",
+   "E:\GD_Project_JS\games\gdzj\TexturePackerRes\gdzj_ui_panel\gdzj_ui_panel",
+   "E:\GD_Project_JS\games\gdzq\TexturePackerRes\gdzq_ui_panel\gdzq_ui_panel",
+   "E:\GD_Project_JS\games\yibz\TexturePackerRes\yibz\yibz",     
+}
+
+dst_foldersGD = { 
    "E:\GD_Project_JS\games\gdbh\TexturePackerRes\gdbh_ui_panel\gdbh_ui_panel",
    "E:\GD_Project_JS\games\gdcs\TexturePackerRes\gdcs_ui_panel\gdcs_ui_panel",
    "E:\GD_Project_JS\games\gdcz\TexturePackerRes\gdcz_ui_panel\gdcz_ui_panel",
@@ -67,6 +89,6 @@ def copytree(src,dst):
             shutil.copy(from_dir,to_dir)#复制文件
 
 #copytree(src_folder,dst_folderSing)
-for dis in dst_foldersShanXi:
+for dis in dst_folders:
     disPath = os.path.abspath(dis)
     copytree(src_folder,disPath)

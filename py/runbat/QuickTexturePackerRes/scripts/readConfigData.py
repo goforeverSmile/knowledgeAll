@@ -8,7 +8,7 @@ import os
 class readConfigData():
     def __init__(self):
         self.cur_dir = os.getcwd() # 当前路径
-        self.csv_path = os.path.join(self.cur_dir, 'updataGames_gdtd.csv')
+        self.csv_path = os.path.join(self.cur_dir, 'TexturePackerRes_anhui.csv')
         self.cfgs = {}
         self.readCsv()
         print(self.cur_dir,self.csv_path)
