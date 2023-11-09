@@ -1,7 +1,7 @@
 
 # encoding: utf-8 
 import os
-path=R"E:\dd\boy/"      
+path=R"E:\HuBei_Project_JS\games\whan\audio\ev5\girl/"      
 
 #获取该目录下所有文件，存入列表中
 f=os.listdir(path)
@@ -16,7 +16,7 @@ for i in f:
     print("f[n======]",f[n])
     temdpOld = temdpOld.split(".");
     #设置新文件名
-    newname=temdpOld[0]+"_1"+'.mp3'
+    newname=temdpOld[0]+"_0"+'.mp3'
     
     #用os模块中的rename方法对文件改名
     os.rename(oldname,newname)
